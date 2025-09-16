@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Doctor Login / Signup</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1 class="login-title">Doctor Portal</h1>
+
+        <div class="form-toggle">
+            <button class="toggle-btn active" id="loginToggle">Login</button>
+            <button class="toggle-btn" id="signupToggle">Signup</button>
+        </div>
+
+        <!-- Login Form -->
+        <form class="form login-form active">
+            <div class="input-group">
+                <i class="fas fa-user-md"></i>
+                <input type="text" placeholder="Doctor ID" required />
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" required class="password-field" />
+                <button type="button" class="toggle-password">
+                    <i class="fa-solid fa-eye-slash"></i>
+                </button>
+            </div>
+
+            <button type="submit" class="submit-btn" onclick="location.href='doctor.html'">
+                Login
+            </button>
+        </form>
+
+        <!-- Signup Form -->
+        <form class="form signup-form">
+            <div class="input-group">
+                <i class="fas fa-user-md"></i>
+                <input type="text" placeholder="Doctor Name" required />
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email Address" required />
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Create Password" required class="password-field" />
+                <button type="button" class="toggle-password">
+    <i class="fa-solid fa-eye-slash toggle-password-icon"></i>
+</button>
+
+            </div>
+
+            <button type="submit" class="submit-btn" onclick="location.href='doctor.html'">
+                Signup
+            </button>
+        </form>
+    </div>
+
+    <script>
+        const loginToggle = document.getElementById('loginToggle');
+        const signupToggle = document.getElementById('signupToggle');
+        const loginForm = document.querySelector('.login-form');
+        const signupForm = document.querySelector('.signup-form');
+
+        loginToggle.addEventListener('click', () => {
+            loginForm.classList.add('active');
+            signupForm.classList.remove('active');
+            loginToggle.classList.add('active');
+            signupToggle.classList.remove('active');
+        });
+
+        signupToggle.addEventListener('click', () => {
+            signupForm.classList.add('active');
+            loginForm.classList.remove('active');
+            signupToggle.classList.add('active');
+            loginToggle.classList.remove('active');
+        });
+
+        // Password Show/Hide Logic
+        document.querySelectorAll('.toggle-password').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const pwdField = btn.parentElement.querySelector('.password-field');
+                const icon = btn.querySelector('i');
+                if (pwdField.type === 'password') {
+                    pwdField.type = 'text';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                } else {
+                    pwdField.type = 'password';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
