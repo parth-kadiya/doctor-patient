@@ -1,58 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Doctor Dashboard</title>
-    <link rel="stylesheet" href="doctor.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doctor Dashboard</title>
+  <link rel="stylesheet" href="doctor.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-    <div class="doctor-container">
-        <h1 class="doctor-title">HCP (Doctor) Section</h1>
+  <div class="doctor-container">
+    <h1 class="doctor-title">HCP (Doctor) Section</h1>
 
-        <div class="features">
+    <div class="features">
 
-            <div class="feature-card">
-                <h2><i class="fas fa-lock"></i> Secure Login Access</h2>
-                <p>Personalized login ID/password for doctors ensuring data privacy and security.</p>
-            </div>
-
-            <div class="feature-card">
-                <h2><i class="fas fa-video"></i> Live Webinars</h2>
-                <p>Regular expert-led sessions on ED & men’s health for continuous medical education.</p>
-            </div>
-
-            <div class="feature-card">
-                <h2><i class="fas fa-book"></i> Webinar Archive</h2>
-                <p>On-demand access to recorded sessions, available anytime for review and learning.</p>
-            </div>
-
-            <div class="feature-card">
-                <h2><i class="fas fa-users"></i> Doctor’s Forum</h2>
-                <p>Peer-to-peer discussion space to share clinical data, cases, and insights for better practices.</p>
-            </div>
-
-            <div class="feature-card">
-                <h2><i class="fas fa-film"></i> Short Video Content</h2>
-                <p>Video bytes, snippets, and teasers for quick learning on latest clinical practices.</p>
-            </div>
-
-            <div class="feature-card">
-                <h2><i class="fas fa-file-medical-alt"></i> Clinical Resources</h2>
-                <p>Updated treatment guidelines, algorithms, and journal scans for easy access.</p>
-            </div>
-
-            <div class="feature-card">
-                <h2><i class="fas fa-building"></i> Conference Proceedings</h2>
-                <p>Highlights and summaries from key conferences, available for future reference.</p>
-            </div>
-
+      <article class="feature-card" onclick="openPopup(this)" role="button" tabindex="0">
+        <header class="card-head"><i class="fas fa-lock"></i><span>Secure Login Access</span></header>
+        <div class="card-media">
+          <img src="img/secure-login.png" alt="Secure Login">
+          <div class="hover-text">Click Me</div>
         </div>
-    </div>
-</body>
+        <div class="feature-description">Personalized login ID/password for doctors.</div>
+      </article>
 
+      <article class="feature-card" onclick="openPopup(this)" role="button" tabindex="0">
+        <header class="card-head"><i class="fas fa-video"></i><span>Live Webinars</span></header>
+        <div class="card-media">
+          <img src="img/live-webinar.png" alt="Live Webinars">
+          <div class="hover-text">Click Me</div>
+        </div>
+        <div class="feature-description">Regular expert-led sessions on ED & men’s health.</div>
+      </article>
+
+      <article class="feature-card" onclick="openPopup(this)" role="button" tabindex="0">
+        <header class="card-head"><i class="fas fa-book"></i><span>Webinar Archive</span></header>
+        <div class="card-media">
+          <img src="img/webinar-archive.png" alt="Webinar Archive">
+          <div class="hover-text">Click Me</div>
+        </div>
+        <div class="feature-description">On-demand access to recorded sessions.</div>
+      </article>
+
+      <article class="feature-card" onclick="openPopup(this)" role="button" tabindex="0">
+        <header class="card-head"><i class="fas fa-users"></i><span>Doctor’s Forum</span></header>
+        <div class="card-media">
+          <img src="img/doctors-forum.png" alt="Doctor Forum">
+          <div class="hover-text">Click Me</div>
+        </div>
+        <div class="feature-description">Peer-to-peer discussion space to share clinical data, cases, and insights.</div>
+      </article>
+
+      <article class="feature-card" onclick="openPopup(this)" role="button" tabindex="0">
+        <header class="card-head"><i class="fas fa-film"></i><span>Short Video Content</span></header>
+        <div class="card-media">
+          <img src="img/short-video.png" alt="Short Video Content">
+          <div class="hover-text">Click Me</div>
+        </div>
+        <div class="feature-description">Video bytes, snippets, teasers for quick learning.</div>
+      </article>
+
+      <article class="feature-card" onclick="openPopup(this)" role="button" tabindex="0">
+        <header class="card-head"><i class="fas fa-file-medical-alt"></i><span>Clinical Resources</span></header>
+        <div class="card-media">
+          <img src="img/clinical-resources.png" alt="Clinical Resources">
+          <div class="hover-text">Click Me</div>
+        </div>
+        <div class="feature-description">Updated treatment guidelines, algorithms, and journal scans.</div>
+      </article>
+
+      <article class="feature-card" onclick="openPopup(this)" role="button" tabindex="0">
+        <header class="card-head"><i class="fas fa-building"></i><span>Conference Proceedings</span></header>
+        <div class="card-media">
+          <img src="img/conference-proceedings.png" alt="Conference Proceedings">
+          <div class="hover-text">Click Me</div>
+        </div>
+        <div class="feature-description">Highlights and summaries from key conferences.</div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="popup" aria-hidden="true">
+    <div class="popup-content" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+      <button class="popup-close" aria-label="Close popup" onclick="closePopup()">&times;</button>
+      <h3 id="popup-title" class="popup-title"></h3>
+      <p class="popup-description"></p>
+    </div>
+  </div>
+
+  <script>
+    // open popup using the clicked card
+    function openPopup(card) {
+      const title = card.querySelector('.card-head span')?.innerText || '';
+      const desc = card.querySelector('.feature-description')?.innerText || '';
+      const popup = document.getElementById('popup');
+      popup.querySelector('.popup-title').innerText = title;
+      popup.querySelector('.popup-description').innerText = desc;
+      popup.style.display = 'flex';
+      popup.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePopup() {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'none';
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // close popup on overlay click
+    document.getElementById('popup').addEventListener('click', function(e){
+      if (e.target === this) closePopup();
+    });
+
+    // keyboard accessibility: Enter to open when focused (cards), Esc to close popup
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') closePopup();
+      if ((e.key === 'Enter' || e.key === ' ') && document.activeElement.classList.contains('feature-card')) {
+        openPopup(document.activeElement);
+      }
+    });
+  </script>
+</body>
 </html>

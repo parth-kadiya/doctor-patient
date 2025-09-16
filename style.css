@@ -39,16 +39,60 @@ body {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border: 3px solid #1c3a67;
+
 }
 
 .doctor-section {
-  background-color: #1c3a67;
   color: #ffffff;
+  position: relative;
+  overflow: hidden;
 }
 
 .patient-section {
-  background-color: #ffffff;
   border: 2px solid #1c3a67;
+    color: white; /* Text color should remain dark blue */
+  position: relative;
+  overflow: hidden;
+}
+
+.doctor-section,
+.patient-section {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.doctor-section::before,
+.patient-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(0.5);
+  z-index: 0;
+}
+
+.doctor-section::before {
+  background-image: url('img/doctor.png');
+}
+
+.patient-section::before {
+  background-image: url('img/patient.png');
+}
+
+.doctor-section *,
+.patient-section * {
+  position: relative;
+  z-index: 1;
 }
 
 .section h2 {
